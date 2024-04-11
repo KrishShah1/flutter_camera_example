@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'screens/first.dart'; // Import the FirstPage widget
 

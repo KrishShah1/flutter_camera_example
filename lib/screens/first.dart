@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'camera.dart'; // Import the CameraScreen widget from camera.dart
 
