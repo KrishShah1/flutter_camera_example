@@ -14,3 +14,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Links to examples
+
+https://blog.logrocket.com/creating-multi-page-app-flutter/
+
+https://blog.logrocket.com/flutter-camera-plugin-deep-dive-with-examples/
+
