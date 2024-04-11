@@ -7,35 +7,23 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  final cameras = await availableCameras();
-
-  final CameraDescription firstFrontCamera = cameras.firstWhere(
-    (camera) => camera.lensDirection == CameraLensDirection.front,
-    orElse: () => cameras.first,
-  );
-
-  runApp(MyApp(camera: firstFrontCamera));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final CameraDescription camera;
-
-  const MyApp({super.key, required this.camera});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: TakePictureScreen(camera: camera),
+      home: TakePictureScreen(),
     );
   }
 }
 
 class TakePictureScreen extends StatefulWidget {
-  const TakePictureScreen({super.key, required this.camera});
-
-  final CameraDescription camera;
+  const TakePictureScreen({Key? key}) : super(key: key);
 
   @override
   TakePictureScreenState createState() => TakePictureScreenState();
@@ -48,11 +36,20 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   void initState() {
     super.initState();
+    _initializeControllerFuture = initializeCamera();
+  }
+
+  Future<void> initializeCamera() async {
+    final cameras = await availableCameras();
+    final firstFrontCamera = cameras.firstWhere(
+      (camera) => camera.lensDirection == CameraLensDirection.front,
+      orElse: () => cameras.first,
+    );
     _controller = CameraController(
-      widget.camera,
+      firstFrontCamera,
       ResolutionPreset.medium,
     );
-    _initializeControllerFuture = _controller.initialize();
+    return _controller.initialize();
   }
 
   @override
@@ -103,7 +100,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 class DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
 
-  const DisplayPictureScreen({super.key, required this.imagePath});
+  const DisplayPictureScreen({Key? key, required this.imagePath}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

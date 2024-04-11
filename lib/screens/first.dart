@@ -1,32 +1,30 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'camera.dart'; // Import the CameraScreen widget from camera.dart
-import 'package:camera/camera.dart';
 
 class FirstPage extends StatelessWidget {
-  final CameraDescription camera;
-
-  const FirstPage({Key? key, required this.camera}) : super(key: key);
+  const FirstPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Page'),
+        title: const Text('UCR Booth'),
       ),
       body: Center(
         child: TextButton(
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)),
+              MaterialPageRoute(builder: (context) => TakePictureScreen()),
             );
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue), // Change the button color here
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
           ),
           child: const Text(
             'Take a Picture',
-            style: TextStyle(color: Colors.white), // Change the text color here
+            style: TextStyle(color: Colors.white),
           ),
         ),
       ),
