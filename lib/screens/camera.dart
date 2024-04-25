@@ -66,7 +66,21 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return CameraPreview(_controller);
+          return Stack(
+              children: [
+                CameraPreview(_controller),
+                Center(
+                  child: Opacity(
+                    opacity: 0.5, // Adjust the opacity value as needed
+                    child: Image.asset(
+                      'assets/spider.jpg',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+              ],
+            );
           } else {
             return const Center(child: CircularProgressIndicator());
           }
