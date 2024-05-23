@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'camera.dart'; // Import the CameraScreen widget from camera.dart
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+  const FirstPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class FirstPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TakePictureScreen()),
+              MaterialPageRoute(builder: (context) => const TakePictureScreen()),
             );
           },
           style: ButtonStyle(

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'screens/first.dart'; // Import the FirstPage widget
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FirstPage(), // Set the FirstPage as the initial route
+      home: const FirstPage(), // Set the FirstPage as the initial route
     );
   }
 }

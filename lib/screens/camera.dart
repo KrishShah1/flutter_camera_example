@@ -7,23 +7,23 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: TakePictureScreen(),
+      home: const TakePictureScreen(),
     );
   }
 }
 
 class TakePictureScreen extends StatefulWidget {
-  const TakePictureScreen({Key? key}) : super(key: key);
+  const TakePictureScreen({super.key});
 
   @override
   TakePictureScreenState createState() => TakePictureScreenState();
@@ -71,11 +71,11 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                 CameraPreview(_controller),
                 Center(
                   child: Opacity(
-                    opacity: 0.5, // Adjust the opacity value as needed
+                    opacity: 1, // Adjust the opacity value as needed
                     child: Image.asset(
-                      'assets/spider.jpg',
-                      width: 150,
-                      height: 150,
+                      'assets/frame.png',
+                      width: 8000,
+                      height: 8000,
                     ),
                   ),
                 ),
@@ -114,7 +114,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 class DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
 
-  const DisplayPictureScreen({Key? key, required this.imagePath}) : super(key: key);
+  const DisplayPictureScreen({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
